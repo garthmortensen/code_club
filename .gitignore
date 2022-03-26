@@ -1,2 +1,5 @@
 # ignore virutal environments
 venv/
+
+# there's also a global gitignore
+# and the ability to override globalgitignore with ! (unignores sometime, e.g. !logs*.txt)
