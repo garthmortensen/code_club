@@ -13,10 +13,35 @@ _  ___/  __ \  __ \_  /   _  ___/  __ \  __  /_  _ \
 
 import os
 import pandas as pd
+import requests, zipfile, io  # for donwloading file
 
-# OS- and directory-agnostic pointer
-filename = f"OnlineNewsPopularity.csv"
-directory = os.path.dirname(__file__)
-filepath = os.path.join(directory, "data", "input", filename)
+filename = "OnlineNewsPopularity.csv"
 
-df = pd.read_csv(filepath)
+# OS and directory agnostic pointer to top level directory
+dir_top = os.path.dirname(__file__)
+dir_top = os.path.join(dir_top,
+                       "data",
+                       "input")
+
+# OS and directory agnostic pointer to destination directory
+dir_dest = os.path.join(dir_top,
+                        "OnlineNewsPopularity.csv",
+                        "OnlineNewsPopularity")
+
+# %%
+
+for file in os.listdir(dir_dest):
+    print(file)
+
+# %%
+
+url = "https://archive.ics.uci.edu/ml/machine-learning-databases/00332/"
+filename = "OnlineNewsPopularity.zip"
+
+res = requests.get(url + filename)
+z = zipfile.ZipFile(io.BytesIO(res.content))
+z.extractall(dir_top)
+
+# %%
+
+# df = pd.read_csv(filepath)
