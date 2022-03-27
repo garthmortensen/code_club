@@ -1,5 +1,8 @@
 # ignore virutal environments
 venv/
+data/input/OnlineNewsPopularity/*
+data/output/*
 
-# there's also a global gitignore
-# and the ability to override globalgitignore with ! (unignores sometime, e.g. !logs*.txt)
+# ignore exceptions
+!data/input/OnlineNewsPopularity/.emptydir
+!data/output/.emptydir
