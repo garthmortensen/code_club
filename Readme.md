@@ -2,15 +2,16 @@
 
 ## Setup
 
-To setup and activate your virtual environment, use commands:
+To create the virtual environment and install required libraries, use commands:
 ```bash
 python -m venv venv
 source venv/Scripts/activate
+pip install -r requirments.txt
 ```
 
-To install dependencies, use command:
+Or simply run `create_env.sh`:
 ```bash
-pip install -r requirments.txt
+./create_env.sh
 ```
 
 ## Data
